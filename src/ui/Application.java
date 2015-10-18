@@ -11,21 +11,11 @@ public class Application {
         int portNumber = 50000;
         try {
         	Socket echoSocket = new Socket(hostName, portNumber);
-        	BufferedReader networkIn = new BufferedReader(new InputStreamReader(echoSocket.getInputStream()));
-            BufferedReader userIn = new BufferedReader(new InputStreamReader(System.in));
-            PrintWriter out = new PrintWriter(echoSocket.getOutputStream());
+        	DataInputStream dis = new DataInputStream(echoSocket.getInputStream());
+        	DataOutputStream dos = new DataOutputStream(echoSocket.getOutputStream());
             System.out.println("Connected to echo server");
 
-            while (true) {
-              String theLine = userIn.readLine();
-              if (theLine.equals("."))
-                break;
-              out.println(theLine);
-              out.flush();
-              System.out.println(networkIn.readLine());
-            }
-            networkIn.close();
-            out.close();    	
+
         } catch (UnknownHostException e) {
             System.err.println("Don't know about host " + hostName);
             System.exit(1);
