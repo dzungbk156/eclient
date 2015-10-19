@@ -1,65 +1,140 @@
 package socket;
-import java.net.Socket;
-import java.io.*;
-import java.net.UnknownHostException;
 
-public class ClientSocket {
-	private Socket echosocket;
-	private InputStream instream;
-	private OutputStream outstream; 
-	public ClientSocket() { 
-		echosocket = null; 
-		instream = null; 
-		outstream = null; 
-	}
-	public String connect( String hostname, int portnumber) throws UnknownHostException, IOException{
-		String output; 
-		if ( echosocket == null && !hostname.isEmpty() ){
-			echosocket = new Socket ( hostname, portnumber);
-			instream = echosocket.getInputStream();
-			outstream = echosocket.getOutputStream();
-			output = receive();
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+
+public class socket {
+	private Socket echoSocket;
+	private InputStream in;
+	private OutputStream out;
+	private boolean connect;
+	private String hostName;
+	private Int portNumber;
+		
+		socket() {
+			connect = false;
 		}
-		else {
-			output=("socket is already connected");
+
+		public void connect(String hostName, int portNumber) throws IOException {
+
+			try {
+
+				Socket echoSocket = new Socket(hostName, portNumber);
+				InputStream in = echoSocket.getInputStream();
+				OutputStream out = echoSocket.getOutputStream();
+
+
+			} catch (UnknownHostException e) {
+
+				System.err.println("Unknown hostName " + hostName);
+				System.exit(1);
+
+			} catch (IOException e) {
+
+				System.err.println("Can't get the connection to " + hostName);
+				System.exit(1);
+
+			}
+			this.hostName = hostName;
+			this.portNumber = portNumber;
+			connect = true;
+
+		}
+
+		public void send(String message) throws IOException {
 			
+			try {
+
+				
+	            byte[] bs = message.getBytes();
+				for(int i =0; i < bs.length; i++) {
+					out.write((int) bs[i]);
+			
+				}
+				out.write('\n');
+
+
+			} catch (UnknownHostException e) {
+
+				System.err.println("Unknown hostName " + hostName);
+				System.exit(1);
+
+			} catch (IOException e) {
+
+				System.err.println("Can't get the connection to " + hostName);
+				System.exit(1);
+
+			}
+
 		}
-		return output;
-	
-	}
-	
-	public void disconect() throws IOException{
-		if ( instream != null)
-			instream.close();
-		if ( outstream != null)
-			outstream.close();
-		if (echosocket != null)
-			echosocket.close();
-	}
-	
-	public void send(String usermessage) throws IOException {
-		if ( outstream != null){
-			byte [] outbyte = usermessage.getBytes();
-			outstream.write(outbyte);
-			outstream.write(0x0d); 				//send  with each message a carriage return
-			outstream.flush();
-			receive();
+
+		public String receive() throws IOException {
+
+			try {
+
+				
+	            String r = "";
+	            int bytesRead = in.read();
+				while ( bytesRead != '\n'){
+						r = r + bytesRead;
+						bytesRead = in.read();		
+				}
+
+				return r;
+
+
+			} catch (UnknownHostException e) {
+
+				System.err.println("Unknown hostName " + hostName);
+				System.exit(1);
+
+			} catch (IOException e) {
+
+				System.err.println("Can't get the connection to " + hostName);
+				System.exit(1);
+
+			}
+
 		}
-		else 
-			System.out.println("There's a problem sending the message!");
-	}
-	
-	public String receive() throws IOException{
-		String receiveMs = new String();
-		if ( instream != null){
-			byte[] array = new byte[instream.available()];
-			int readBytes = instream.read(array);
-			if (readBytes != 0 && readBytes != -1)
-				receiveMs =  new String (array,0,array.length-2);	
+
+		public void disconnect() throws IOException {
+
+			try {
+
+				
+	            in.close();
+	            out.close();
+				echoSocket.close();
+
+
+
+			} catch (UnknownHostException e) {
+
+				System.err.println("Unknown hostName " + hostName);
+				System.exit(1);
+
+			} catch (IOException e) {
+
+				System.err.println("Can't get the connection to " + hostName);
+				System.exit(1);
+
+			}
+
 		}
-		else 
-			System.out.println("There's a problem receiving the message");
-		return receiveMs;
-	}
-	
+
+
+		public boolean isConnect() {
+			return connect;
+		}
+
+
+		public String getHostName(){
+			return hostName;
+		}
+
+
+		public int getPortNumber() {
+			return portNumber;
+		}
 }
