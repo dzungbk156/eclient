@@ -3,16 +3,17 @@ package socket;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
-
-public class socket {
+import java.io.*;
+import java.net.UnknownHostException;
+public class ClientSocket {
 	private Socket echoSocket;
 	private InputStream in;
 	private OutputStream out;
 	private boolean connect;
 	private String hostName;
-	private Int portNumber;
+	private int portNumber;
 		
-		socket() {
+		ClientSocket() {
 			connect = false;
 		}
 
@@ -20,9 +21,9 @@ public class socket {
 
 			try {
 
-				Socket echoSocket = new Socket(hostName, portNumber);
-				InputStream in = echoSocket.getInputStream();
-				OutputStream out = echoSocket.getOutputStream();
+				 echoSocket = new Socket(hostName, portNumber);
+				 in = echoSocket.getInputStream();
+				 out = echoSocket.getOutputStream();
 
 
 			} catch (UnknownHostException e) {
@@ -52,7 +53,8 @@ public class socket {
 					out.write((int) bs[i]);
 			
 				}
-				out.write('\n');
+				out.write(0x0D);
+				out.flush();
 
 
 			} catch (UnknownHostException e) {
@@ -70,18 +72,19 @@ public class socket {
 		}
 
 		public String receive() throws IOException {
-
+			String r = "";
 			try {
 
 				
-	            String r = "";
+	            
 	            int bytesRead = in.read();
-				while ( bytesRead != '\n'){
-						r = r + bytesRead;
+				while ( bytesRead != 0x0d){
+						r = r + (char)bytesRead;
 						bytesRead = in.read();		
+						
 				}
 
-				return r;
+				
 
 
 			} catch (UnknownHostException e) {
@@ -96,6 +99,8 @@ public class socket {
 
 			}
 
+			
+			return r;
 		}
 
 		public void disconnect() throws IOException {

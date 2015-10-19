@@ -1,8 +1,14 @@
 package ui;
 
 import java.io.*;
+
 import socket.Controller;
+
 import java.net.UnknownHostException;
+
+import socket.ClientSocket;
+
+import java.util.Scanner;
 public class Application {
 
 	Controller controller;
@@ -20,8 +26,8 @@ public class Application {
 
 			if(command.equals("connect")) {
 				String hostname = sc.next();
-				Int portNumber = sc.nextInt();
-
+				int portNumber = sc.nextInt();
+				System.out.println(hostname);
 				System.out.print("EchoClient> " + controller.connect(hostname,portNumber));
 
 			}
@@ -36,12 +42,13 @@ public class Application {
 			else if(command.equals("help"));
 			else if(command.equals("loglevel"));
 			else {
-				System.out.print("EchoClient> command not valid, try again and read the help") 
+				System.out.print("EchoClient> command not valid, try again and read the help") ;
 			}
+			command = sc.next();
 
 		}
 		if(controller.isConnect()) System.out.print("EchoClient> " + controller.disconnect());
-		System.out.print("EchoClient> Application exit!") 
+		System.out.print("EchoClient> Application exit!") ;
 
 	}
 	
