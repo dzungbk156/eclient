@@ -25,7 +25,7 @@ public class Controller {
 				socket.send(message);
 				return socket.receive();
 			}
-			else return "Server not connected yet";
+			else return "Error! Not connected!";
 		}
 
 		public String disconnect()throws IOException {
