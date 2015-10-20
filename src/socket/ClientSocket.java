@@ -78,7 +78,7 @@ public class ClientSocket {
 				
 	            
 	            int bytesRead = in.read();
-				while ( bytesRead != 0x0d){
+				while ( bytesRead != 0x0D){
 						r = r + (char)bytesRead;
 						bytesRead = in.read();		
 						
