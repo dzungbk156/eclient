@@ -9,94 +9,86 @@ public class ClientSocket {
 	private Socket echoSocket;
 	private InputStream in;
 	private OutputStream out;
-	private boolean connect;
 	private String hostName;
 	private int portNumber;
 		
 		ClientSocket() {
-			connect = false;
 		}
 
 		public void connect(String hostName, int portNumber) throws IOException {
-
-			try {
-
-				 echoSocket = new Socket(hostName, portNumber);
-				 in = echoSocket.getInputStream();
-				 out = echoSocket.getOutputStream();
-
-
-			} catch (UnknownHostException e) {
-
-				System.err.println("Unknown hostName " + hostName);
-				System.exit(1);
-
-			} catch (IOException e) {
-
-				System.err.println("Can't get the connection to " + hostName);
-				System.exit(1);
-
-			}
 			this.hostName = hostName;
 			this.portNumber = portNumber;
-			connect = true;
+			if (!isConnect()) {
+				try {
+
+					 echoSocket = new Socket(hostName, portNumber);
+					 in = echoSocket.getInputStream();
+					 out = echoSocket.getOutputStream();
+
+
+				} catch (UnknownHostException e) {
+
+					System.err.println("Unknown hostName " + hostName);
+
+				} catch (IOException e) {
+
+					System.err.println("Can't get the connection to " + hostName);
+
+				}
+				
+			}
+			else {
+				throw new IOException("Already connected to" + hostName 
+					+ ", disconnect before another connection");
+			}
 
 		}
 
 		public void send(String message) throws IOException {
-			
-			try {
+			if(isConnect()) {
+				try {
 
+					
+		            byte[] bs = message.getBytes();
+					for(int i =0; i < bs.length; i++) {
+						out.write((int) bs[i]);
 				
-	            byte[] bs = message.getBytes();
-				for(int i =0; i < bs.length; i++) {
-					out.write((int) bs[i]);
-			
+					}
+					out.write(0x0D);
+					out.flush();
+
+
+				} catch (IOException e) {
+
+					System.err.println("Can't get the connection to " + hostName);
+
 				}
-				out.write(0x0D);
-				out.flush();
-
-
-			} catch (UnknownHostException e) {
-
-				System.err.println("Unknown hostName " + hostName);
-				System.exit(1);
-
-			} catch (IOException e) {
-
-				System.err.println("Can't get the connection to " + hostName);
-				System.exit(1);
-
 			}
 
 		}
 
 		public String receive() throws IOException {
 			String r = "";
-			try {
+			if(isConnect()) {
+				try {
 
-				
-	            
-	            int bytesRead = in.read();
-				while ( bytesRead != 0x0D){
-						r = r + (char)bytesRead;
-						bytesRead = in.read();		
-						
+					
+		            
+		            int bytesRead = in.read();
+					while ( bytesRead != 0x0D){
+							r = r + (char)bytesRead;
+							bytesRead = in.read();		
+							
+					}
+
+					
+
+
+				}  catch (IOException e) {
+
+					System.err.println("Can't get the connection to " + hostName);
+
 				}
-
-				
-
-
-			} catch (UnknownHostException e) {
-
-				System.err.println("Unknown hostName " + hostName);
-				System.exit(1);
-
-			} catch (IOException e) {
-
-				System.err.println("Can't get the connection to " + hostName);
-				System.exit(1);
-
 			}
 
 			
@@ -105,7 +97,7 @@ public class ClientSocket {
 
 		public void disconnect() throws IOException {
 
-			try {
+				
 
 				
 	            in.close();
@@ -113,24 +105,13 @@ public class ClientSocket {
 				echoSocket.close();
 
 
-
-			} catch (UnknownHostException e) {
-
-				System.err.println("Unknown hostName " + hostName);
-				System.exit(1);
-
-			} catch (IOException e) {
-
-				System.err.println("Can't get the connection to " + hostName);
-				System.exit(1);
-
-			}
+			
 
 		}
 
 
 		public boolean isConnect() {
-			return connect;
+			return (echoSocket != null && echoSocket.isConnected());
 		}
 
 

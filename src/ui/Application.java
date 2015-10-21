@@ -40,7 +40,7 @@ public class Application {
 			else if(command.equals("help"));
 			else if(command.equals("loglevel"));
 			else {
-				System.out.println("EchoClient> command not valid, try again and read the help") ;
+				System.out.println("EchoClient> command not valid, try again or read the help") ;
 			}
 			System.out.println("EchoClient> ");
 			command = sc.next();

@@ -25,13 +25,17 @@ public class Controller {
 				socket.send(message);
 				return socket.receive();
 			}
-			else return "Error! Not connected!";
+			else return "Server not connected";
 		}
 
 		public String disconnect()throws IOException {
-			socket.disconnect();
-			return "Connection terminated: "+ socket.getHostName() + " / "+ socket.getPortNumber();
-
+			if(socket.isConnect()) {
+				socket.disconnect();
+				return "Connection terminated: "+ socket.getHostName() + " / "+ socket.getPortNumber();
+			}
+			else {
+				return "Server not connection";
+			}
 		}
 
 		public boolean isConnect() {
