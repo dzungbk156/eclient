@@ -42,6 +42,7 @@ public class Application {
 			else {
 				System.out.println("EchoClient> command not valid, try again or read the help") ;
 			}
+			
 			System.out.println("EchoClient> ");
 			command = sc.next();
 
