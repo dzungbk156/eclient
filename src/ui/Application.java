@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class Application {
 
 	Controller controller;
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException  {
 		
 
 
@@ -20,24 +20,39 @@ public class Application {
 		Scanner sc	= new Scanner(System.in);
 		System.out.println("EchoClient> ");
 		String command = sc.next();
-
+		String result = "";
 		while(!command.equals("quit")) {
 			
 			if(command.equals("connect")) {
 				String hostname = sc.next();
+				
 				int portNumber = sc.nextInt();
-				System.out.println("EchoClient> " + controller.connect(hostname,portNumber));
+				
+				result = controller.connect(hostname,portNumber);
+				if(result != "") System.out.println("EchoClient> " + result );
 
 			}
 			else if(command.equals("send")) {
 				String message = sc.nextLine();
-				System.out.println("EchoClient> " + controller.send(message));
+				result = controller.send(message);
+				if(result != "") System.out.println("EchoClient> " + result );
 			}
 			else if(command.equals("disconnect")) {
-				System.out.println("EchoClient> " + controller.disconnect());
+				
+				result = controller.disconnect();
+				if(result != "") System.out.println("EchoClient> " + result );
 			}
 
-			else if(command.equals("help"));
+			else if(command.equals("help")) {
+				System.out.println(
+					"Commandes: "+
+					"connect <adress> <port>  : connecting to the hostname adress and the hostport 'port' " +
+					"disconnect : disconnect the current connection" +
+					"send <message>  :  send message to the current connecting server"+
+					"logLevel <level> : show the logs of level level" +
+					"help : show the help instruction" +
+					"quit : quit the application");
+			}
 			else if(command.equals("loglevel"));
 			else {
 				System.out.println("EchoClient> command not valid, try again or read the help") ;
@@ -46,7 +61,8 @@ public class Application {
 			command = sc.next();
 
 		}
-		if(controller.isConnect()) System.out.println("EchoClient> " + controller.disconnect());
+		String quitmessage = controller.quit();
+		if(quitmessage != "") System.out.println("EchoClient> " + quitmessage );
 		System.out.println("EchoClient> Application exit!") ;
 
 	}

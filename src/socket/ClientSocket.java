@@ -5,6 +5,8 @@ import java.io.OutputStream;
 import java.net.Socket;
 import java.io.*;
 import java.net.UnknownHostException;
+import java.rmi.ServerException;
+
 public class ClientSocket {
 	private Socket echoSocket;
 	private InputStream in;
@@ -15,7 +17,7 @@ public class ClientSocket {
 		ClientSocket() {
 		}
 
-		public void connect(String hostName, int portNumber) throws IOException {
+		public void connect(String hostName, int portNumber) throws IOException, ServerException{
 			this.hostName = hostName;
 			this.portNumber = portNumber;
 			if (!isConnect()) {
@@ -30,9 +32,10 @@ public class ClientSocket {
 
 					System.err.println("Unknown hostName " + hostName);
 
-				} catch (IOException e) {
+				} catch (ServerException e) {
 
 					System.err.println("Can't get the connection to " + hostName);
+
 
 				}
 				
@@ -44,7 +47,7 @@ public class ClientSocket {
 
 		}
 
-		public void send(String message) throws IOException {
+		public void send(String message) throws IOException, ServerException {
 			if(isConnect()) {
 				try {
 
@@ -58,16 +61,20 @@ public class ClientSocket {
 					out.flush();
 
 
-				} catch (IOException e) {
+				} catch (ServerException e) {
 
 					System.err.println("Can't get the connection to " + hostName);
 
 				}
 			}
+			else {
+				
+				throw new ServerException("Server Not Connected");
+			}
 
 		}
 
-		public String receive() throws IOException {
+		public String receive() throws IOException, ServerException {
 			String r = "";
 			if(isConnect()) {
 				try {
@@ -84,34 +91,52 @@ public class ClientSocket {
 					
 
 
-				}  catch (IOException e) {
+				}  catch (ServerException e) {
 
 					System.err.println("Can't get the connection to " + hostName);
 
 				}
 			}
 
+			else {
+				throw new ServerException("Server Not Connected");
+			}
+
 			
 			return r;
 		}
 
-		public void disconnect() throws IOException {
+		public void disconnect() throws IOException, ServerException {
 
 				
+				if(isConnect()) {
+					try {
+			            in.close();
+			            out.close();
+						echoSocket.close();
+		
+						in = null;
+						out = null;
+						echoSocket = null;
+					}
+					catch (ServerException e) {
+						System.err.println("Can't disconnect the server");
+						
+					}
 
-				
-	            in.close();
-	            out.close();
-				echoSocket.close();
+				}
+				else {
+					throw new ServerException("Server Not Connected");
+				}
 
-
-			
 
 		}
 
 
 		public boolean isConnect() {
-			return (echoSocket != null && echoSocket.isConnected());
+
+
+			return (echoSocket != null);
 		}
 
 
