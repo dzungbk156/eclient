@@ -41,7 +41,7 @@ public class ClientSocket {
 				
 			}
 			else {
-				throw new IOException("Already connected to" + hostName 
+				throw new IOException("Already connected to " + hostName 
 					+ ", disconnect before another connection");
 			}
 

@@ -18,7 +18,6 @@ public class Application {
 
 		Controller controller = new Controller();
 		Scanner sc	= new Scanner(System.in);
-		System.out.println("EchoClient> ");
 		String command = sc.next();
 		String result = "";
 		while(!command.equals("quit")) {
@@ -49,8 +48,13 @@ public class Application {
 
 			else if(command.equals("help")) {
 				System.out.println(
+
 					"To send message to server, first connect to it"+
 					"When quit the application, connection will automatic disactivad"+
+
+					"To send message to server, first connect to it" +
+					"When quit the application, connection will automatic disactivad" +
+
 					"Commandes: "+
 					"connect <adress> <port>  : connecting to the hostname adress and the hostport 'port' " +
 					"disconnect : disconnect the current connection" +
@@ -71,7 +75,7 @@ public class Application {
 		String quitmessage = controller.quit();
 		if(quitmessage != "") System.out.println("EchoClient> " + quitmessage );
 		System.out.println("EchoClient> Application exit!") ;
-
+		
 	}
 	
 

@@ -15,6 +15,7 @@ DEBUG [main]:  uhuih efhwiu fhewf
 INFO  [main]: quit the application
 DEBUG [main]: quit doing disconnect
 INFO  [main]: socket disconnect
+<<<<<<< HEAD
 ERROR [main]: Already connected to131.159.52.2, disconnect before another connection
 INFO  [main]: sended message:  something
 DEBUG [main]:  something
@@ -22,3 +23,43 @@ DEBUG [main]:  something
 INFO  [main]: quit the application
 DEBUG [main]: quit doing disconnect
 INFO  [main]: socket disconnect
+=======
+INFO  [main]: Controller: getConnected to 131.159.52.2with 50000
+DEBUG [main]: Controller: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+
+ERROR [main]: Controller: Already connected to 131.159.52.2, disconnect before another connection
+INFO  [main]: Controller: socket disconnect
+INFO  [main]: Controller: getConnected to 131.159.52.2with 50000
+DEBUG [main]: Controller: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+
+INFO  [main]: Controller: sended message:  hjoihgurhg
+DEBUG [main]: Controller:  hjoihgurhg
+
+INFO  [main]: Controller: socket disconnect
+INFO  [main]: Controller: getConnected to 131.159.52.2with 50000
+DEBUG [main]: Controller: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+
+ERROR [main]: Controller: Already connected to 131.159.52.2, disconnect before another connection
+ERROR [main]: Controller: Already connected to 131.159.52.2, disconnect before another connection
+ERROR [main]: Controller: Already connected to 131.159.52.2, disconnect before another connection
+ERROR [main]: Controller: Already connected to 131.159.52.2, disconnect before another connection
+INFO  [main]: Controller: quit the application
+DEBUG [main]: Controller: quit doing disconnect
+INFO  [main]: Controller: socket disconnect
+>>>>>>> 41dbd4f638e0e4720f6676adc9e1970e36903fa9
+ERROR [main]: Controller: Already connected to 131.159.52.2, disconnect before another connection
+INFO  [main]: Controller: quit the application
+DEBUG [main]: Controller: quit doing disconnect
+INFO  [main]: Controller: socket disconnect
+ERROR [main]: Controller: Already connected to 131.159.52.2, disconnect before another connection
+INFO  [main]: Controller: quit the application
+DEBUG [main]: Controller: quit doing disconnect
+INFO  [main]: Controller: socket disconnect
+ERROR [main]: Controller: Already connected to 131.159.52.2, disconnect before another connection
+INFO  [main]: Controller: quit the application
+DEBUG [main]: Controller: quit doing disconnect
+INFO  [main]: Controller: socket disconnect
+ERROR [main]: Controller: Already connected to 131.159.52.2, disconnect before another connection
+INFO  [main]: Controller: quit the application
+DEBUG [main]: Controller: quit doing disconnect
+INFO  [main]: Controller: socket disconnect
