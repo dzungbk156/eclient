@@ -46,6 +46,7 @@ ERROR [main]: Controller: Already connected to 131.159.52.2, disconnect before a
 INFO  [main]: Controller: quit the application
 DEBUG [main]: Controller: quit doing disconnect
 INFO  [main]: Controller: socket disconnect
+<<<<<<< HEAD
 >>>>>>> 41dbd4f638e0e4720f6676adc9e1970e36903fa9
 ERROR [main]: Controller: Already connected to 131.159.52.2, disconnect before another connection
 INFO  [main]: Controller: quit the application
@@ -63,3 +64,82 @@ ERROR [main]: Controller: Already connected to 131.159.52.2, disconnect before a
 INFO  [main]: Controller: quit the application
 DEBUG [main]: Controller: quit doing disconnect
 INFO  [main]: Controller: socket disconnect
+=======
+INFO  [main]: Controller: quit the application
+DEBUG [main]: Controller: quit without doing disconnect
+INFO  [main]: Controller: getConnected to 131.159.52.2with 50000
+DEBUG [main]: Controller: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+
+INFO  [main]: Controller: quit the application
+DEBUG [main]: Controller: quit doing disconnect
+INFO  [main]: Controller: socket disconnect
+INFO  [main]: Controller: getConnected to 131.159.52.2with 50000
+DEBUG [main]: Controller: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+
+INFO  [main]: Controller: sended message:  ughiregh reguheu ifer fuihrg
+DEBUG [main]: Controller:  ughiregh reguheu ifer fuihrg
+
+INFO  [main]: Controller: socket disconnect
+INFO  [main]: Controller: getConnected to 131.159.52.2with 50000
+DEBUG [main]: Controller: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+
+INFO  [main]: Controller: quit the application
+DEBUG [main]: Controller: quit doing disconnect
+INFO  [main]: Controller: socket disconnect
+INFO  [main]: Controller: getConnected to 131.159.52.2with 50000
+INFO  [main]: Controller: getConnected to 131.159.52.2with 50000
+INFO  [main]: Controller: getConnected to 131.159.52.2with 50000
+INFO  [main]: Controller: getConnected to 131.159.52.2with 50000
+DEBUG [main]: Controller: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+
+DEBUG [main]: Controller: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+
+ERROR [main]: Controller: Already connected to 131.159.52.2, disconnect before another connection
+ERROR [main]: Controller: Already connected to 131.159.52.2, disconnect before another connection
+INFO  [main]: Controller: quit the application
+INFO  [main]: Controller: quit the application
+DEBUG [main]: Controller: quit doing disconnect
+DEBUG [main]: Controller: quit doing disconnect
+INFO  [main]: Controller: socket disconnect
+INFO  [main]: Controller: socket disconnect
+INFO  [main]: Controller: quit the application
+INFO  [main]: Controller: quit the application
+DEBUG [main]: Controller: quit without doing disconnect
+DEBUG [main]: Controller: quit without doing disconnect
+INFO  [main]: Controller: quit the application
+INFO  [main]: Controller: quit the application
+DEBUG [main]: Controller: quit without doing disconnect
+DEBUG [main]: Controller: quit without doing disconnect
+INFO  [main]: Controller: getConnected to 131.159.52.2with 50000
+INFO  [main]: Controller: getConnected to 131.159.52.2with 50000
+DEBUG [main]: Controller: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+
+DEBUG [main]: Controller: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+
+INFO  [main]: Controller: quit the application
+INFO  [main]: Controller: quit the application
+DEBUG [main]: Controller: quit doing disconnect
+DEBUG [main]: Controller: quit doing disconnect
+INFO  [main]: Controller: socket disconnect
+INFO  [main]: Controller: socket disconnect
+INFO  [main]: Controller: getConnected to 131.159.52.2with 50000
+INFO  [main]: Controller: getConnected to 131.159.52.2with 50000
+DEBUG [main]: Controller: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+DEBUG [main]: Controller: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+INFO  [main]: Controller: quit the application
+INFO  [main]: Controller: quit the application
+DEBUG [main]: Controller: quit doing disconnect
+DEBUG [main]: Controller: quit doing disconnect
+INFO  [main]: Controller: socket disconnect
+INFO  [main]: Controller: socket disconnect
+22 Oct 2015 15:19:10,326 INFO  [main]: Controller: quit the application
+22 Oct 2015 15:19:10,326 INFO  [main]: Controller: quit the application
+22 Oct 2015 15:19:10,329 DEBUG [main]: Controller: quit without doing disconnect
+22 Oct 2015 15:19:10,329 DEBUG [main]: Controller: quit without doing disconnect
+22 Oct 2015 15:19:21,856 INFO  [main]: Controller: set loglevel to all
+22 Oct 2015 15:19:21,856 INFO  [main]: Controller: set loglevel to all
+22 Oct 2015 15:19:24,316 INFO  [main]: Controller: quit the application
+22 Oct 2015 15:19:24,316 INFO  [main]: Controller: quit the application
+22 Oct 2015 15:19:24,316 DEBUG [main]: Controller: quit without doing disconnect
+22 Oct 2015 15:19:24,316 DEBUG [main]: Controller: quit without doing disconnect
+>>>>>>> 58b069200404f76d16cc07743e8c33163fc6b883

@@ -9,8 +9,8 @@ public class Controller {
 
 		private ClientSocket socket;
 		private ClientLog log;
-
-
+		
+//		constructor of the controller 
 		public Controller()throws IOException {
 			socket = new ClientSocket();
 			log = new ClientLog();
@@ -19,7 +19,10 @@ public class Controller {
 		}
 	
 		
-		
+//		return the connect status received from server
+//		creat log
+//		throws serverException
+//		throws IOException
 		public String connect(String hostName, int portNumber) throws IOException  {
 			
 			String s = "";
@@ -45,8 +48,10 @@ public class Controller {
 			}
 			return s;
 		}
-
-
+		
+//		show sendstatus to console
+//		throws serverException
+//		throws IOException
 		public String send(String message) throws IOException {
 			
 			
@@ -68,6 +73,9 @@ public class Controller {
 			return s;
 		}
 
+//		return disconnect message to console 
+//		throws serverException
+//		throws IOException
 		public String disconnect() throws IOException {
 			if(socket.isConnect()) {
 				try {
@@ -95,7 +103,8 @@ public class Controller {
 		public boolean isConnect() {
 			return socket.isConnect();
 		}
-
+//		return quit message to console 
+		
 		public String quit() throws IOException  {
 			log.info("Controller: quit the application");
 			if(socket.isConnect()) {
@@ -107,6 +116,11 @@ public class Controller {
 				return "";
 			}
 
+		}
+//		set the loglevel
+		public String setLogLevel(String level) {
+			log.info("Controller: set loglevel to " + level);
+			return log.setLogLevel(level);
 		}
 
 

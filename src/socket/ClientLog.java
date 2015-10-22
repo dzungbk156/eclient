@@ -2,54 +2,64 @@ package socket;
 import org.apache.log4j.*;
 import java.io.*;
 public class ClientLog {
+//	create the log path 
 	private static final String LOG_PATH = "logs/client.log";
-	private static final String LOG_PATTERN ="%-5p [%t]: %m%n";
+//	create log pattern
+	private static final String LOG_PATTERN ="%d{dd MMM yyyy HH:mm:ss,SSS} %-5p [%t]: %m%n";
 	
 	public static final Logger logger = Logger.getLogger("echoClient");
 	
 	public static void setLogger() throws IOException{
-		logger.setLevel(Level.ALL);
+		logger.setLevel(Level.ALL);  // set standard level
 		PatternLayout layout = new PatternLayout(LOG_PATTERN);
-        FileAppender appender = new FileAppender(layout, LOG_PATH, true);
+        FileAppender appender = new FileAppender(layout, LOG_PATH, true);  //create file appender
         logger.addAppender(appender);
 	}
 	
-	public void debug( Object message){
-		logger.debug(message);
-	}
-	public void error(Object message){
-		logger.error(message);
-	}
-	public void info(Object message){
-		logger.info(message);
-	}
-	public void fatal ( Object message){
-		logger.fatal(message);
-	}
-	public void warn(Object message){
-		logger.warn(message);
-	}
+	
+//	set new log level 
 	public static String setLogLevel(String input){
 		String output = null;
-		Level level; 
-		if (output.equalsIgnoreCase("all")) {
+		Level level = null; 
+		if (input.equals("all")) {
             level = Level.ALL;
-        } else if (output.equalsIgnoreCase("debug")) {
-            level = Level.DEBUG;
-        } else if (output.equalsIgnoreCase("info")) {
+        } else if (input.equals("info")) {
             level = Level.INFO;	
-        } else if (output.equalsIgnoreCase("warn")) {
+        } else if (input.equals("warn")) {
             level = Level.WARN;
-        } else if (output.equalsIgnoreCase("error")) {
+        } else if (input.equals("debug")) {
+            level = Level.DEBUG;
+        } else if (input.equals("error")) {
             level = Level.ERROR;
-        } else if (output.equalsIgnoreCase("fatal")) {
+        } else if (input.equals("fatal")) {
             level = Level.FATAL;
-        } else if (output.equalsIgnoreCase("off")) {
+        } else if (input.equals("off")) {
             level = Level.OFF;
-        } else {
-            output = "Error! Logging level \"" + output
+        }
+        if(level != null) {
+        	logger.setLevel(level);
+        	return input;
+        }
+        else {
+            return output = "Error! Logging level \"" + input
                     + "\" is n ot valid.";
+		}
+}
+	
+	
+	public void debug( Object output){
+		logger.debug(output);
 	}
-		return output;
+	public void error(Object output){
+		logger.error(output);
+	}
+	public void info(Object output){
+		logger.info(output);
+	}
+	public void fatal ( Object output){
+		logger.fatal(output);
+	}
+	public void warn(Object output){
+		logger.warn(output);
 }
 }

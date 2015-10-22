@@ -6,7 +6,7 @@ import java.net.Socket;
 import java.io.*;
 import java.net.UnknownHostException;
 import java.rmi.ServerException;
-
+//this class do the communication via Socket
 public class ClientSocket {
 	private Socket echoSocket;
 	private InputStream in;
@@ -16,7 +16,7 @@ public class ClientSocket {
 		
 		ClientSocket() {
 		}
-
+//		try to connect to server with the given hostname and port number from user 
 		public void connect(String hostName, int portNumber) throws IOException, ServerException{
 			this.hostName = hostName;
 			this.portNumber = portNumber;
@@ -47,12 +47,13 @@ public class ClientSocket {
 
 		}
 
+//		send the user message to the connected server 
 		public void send(String message) throws IOException, ServerException {
 			if(isConnect()) {
 				try {
 
 					
-		            byte[] bs = message.getBytes();
+	             byte[] bs = message.getBytes();   //convert String to byte 
 					for(int i =0; i < bs.length; i++) {
 						out.write((int) bs[i]);
 				
@@ -73,7 +74,9 @@ public class ClientSocket {
 			}
 
 		}
-
+		
+//		receive the message from server 
+//		return the message
 		public String receive() throws IOException, ServerException {
 			String r = "";
 			if(isConnect()) {
@@ -87,8 +90,8 @@ public class ClientSocket {
 							bytesRead = in.read();		
 							
 					}
-
-					
+					// to delete the \n
+					r = r.substring(0,r.length()-1);
 
 
 				}  catch (ServerException e) {
@@ -105,6 +108,10 @@ public class ClientSocket {
 			
 			return r;
 		}
+		
+//		disconnect from server 
+//		throws serverException 
+//		throws IOException
 
 		public void disconnect() throws IOException, ServerException {
 
@@ -132,19 +139,19 @@ public class ClientSocket {
 
 		}
 
-
+//		return if the socket is connected 
 		public boolean isConnect() {
 
 
 			return (echoSocket != null);
 		}
 
-
+//		return the hostname of connected socket
 		public String getHostName(){
 			return hostName;
 		}
 
-
+//		return port number of connected socket
 		public int getPortNumber() {
 			return portNumber;
 		}
