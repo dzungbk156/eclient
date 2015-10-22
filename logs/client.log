@@ -37,3 +37,70 @@ ERROR [main]: Controller: Already connected to 131.159.52.2, disconnect before a
 INFO  [main]: Controller: quit the application
 DEBUG [main]: Controller: quit doing disconnect
 INFO  [main]: Controller: socket disconnect
+INFO  [main]: Controller: quit the application
+DEBUG [main]: Controller: quit without doing disconnect
+INFO  [main]: Controller: getConnected to 131.159.52.2with 50000
+DEBUG [main]: Controller: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+
+INFO  [main]: Controller: quit the application
+DEBUG [main]: Controller: quit doing disconnect
+INFO  [main]: Controller: socket disconnect
+INFO  [main]: Controller: getConnected to 131.159.52.2with 50000
+DEBUG [main]: Controller: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+
+INFO  [main]: Controller: sended message:  ughiregh reguheu ifer fuihrg
+DEBUG [main]: Controller:  ughiregh reguheu ifer fuihrg
+
+INFO  [main]: Controller: socket disconnect
+INFO  [main]: Controller: getConnected to 131.159.52.2with 50000
+DEBUG [main]: Controller: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+
+INFO  [main]: Controller: quit the application
+DEBUG [main]: Controller: quit doing disconnect
+INFO  [main]: Controller: socket disconnect
+INFO  [main]: Controller: getConnected to 131.159.52.2with 50000
+INFO  [main]: Controller: getConnected to 131.159.52.2with 50000
+INFO  [main]: Controller: getConnected to 131.159.52.2with 50000
+INFO  [main]: Controller: getConnected to 131.159.52.2with 50000
+DEBUG [main]: Controller: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+
+DEBUG [main]: Controller: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+
+ERROR [main]: Controller: Already connected to 131.159.52.2, disconnect before another connection
+ERROR [main]: Controller: Already connected to 131.159.52.2, disconnect before another connection
+INFO  [main]: Controller: quit the application
+INFO  [main]: Controller: quit the application
+DEBUG [main]: Controller: quit doing disconnect
+DEBUG [main]: Controller: quit doing disconnect
+INFO  [main]: Controller: socket disconnect
+INFO  [main]: Controller: socket disconnect
+INFO  [main]: Controller: quit the application
+INFO  [main]: Controller: quit the application
+DEBUG [main]: Controller: quit without doing disconnect
+DEBUG [main]: Controller: quit without doing disconnect
+INFO  [main]: Controller: quit the application
+INFO  [main]: Controller: quit the application
+DEBUG [main]: Controller: quit without doing disconnect
+DEBUG [main]: Controller: quit without doing disconnect
+INFO  [main]: Controller: getConnected to 131.159.52.2with 50000
+INFO  [main]: Controller: getConnected to 131.159.52.2with 50000
+DEBUG [main]: Controller: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+
+DEBUG [main]: Controller: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+
+INFO  [main]: Controller: quit the application
+INFO  [main]: Controller: quit the application
+DEBUG [main]: Controller: quit doing disconnect
+DEBUG [main]: Controller: quit doing disconnect
+INFO  [main]: Controller: socket disconnect
+INFO  [main]: Controller: socket disconnect
+INFO  [main]: Controller: getConnected to 131.159.52.2with 50000
+INFO  [main]: Controller: getConnected to 131.159.52.2with 50000
+DEBUG [main]: Controller: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+DEBUG [main]: Controller: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+INFO  [main]: Controller: quit the application
+INFO  [main]: Controller: quit the application
+DEBUG [main]: Controller: quit doing disconnect
+DEBUG [main]: Controller: quit doing disconnect
+INFO  [main]: Controller: socket disconnect
+INFO  [main]: Controller: socket disconnect

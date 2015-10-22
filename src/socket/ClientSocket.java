@@ -87,8 +87,8 @@ public class ClientSocket {
 							bytesRead = in.read();		
 							
 					}
-
-					
+					// to delete the \n
+					r = r.substring(0,r.length()-1);
 
 
 				}  catch (ServerException e) {
