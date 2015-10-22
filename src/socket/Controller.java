@@ -13,7 +13,8 @@ public class Controller {
 		public Controller() {
 			socket = new ClientSocket();
 		}
-
+	
+		
 		public String connect(String hostName, int portNumber) throws IOException {
 			socket.connect(hostName,portNumber);
 			return socket.receive();

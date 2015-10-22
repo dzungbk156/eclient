@@ -10,8 +10,8 @@ public class ClientLog {
 	public static void setLogger() throws IOException{
 		logger.setLevel(Level.INFO);
 		PatternLayout layout = new PatternLayout(LOG_PATTERN);
-        FileAppender fa = new FileAppender(layout, LOG_PATH, true);
-        logger.addAppender(fa);
+        FileAppender appender = new FileAppender(layout, LOG_PATH, true);
+        logger.addAppender(appender);
 	}
 	
 	public void debug( Object message){
@@ -37,7 +37,7 @@ public class ClientLog {
         } else if (output.equalsIgnoreCase("debug")) {
             level = Level.DEBUG;
         } else if (output.equalsIgnoreCase("info")) {
-            level = Level.INFO;
+            level = Level.INFO;	
         } else if (output.equalsIgnoreCase("warn")) {
             level = Level.WARN;
         } else if (output.equalsIgnoreCase("error")) {
