@@ -8,7 +8,7 @@ public class ClientLog {
 	public static final Logger logger = Logger.getLogger("echoClient");
 	
 	public static void setLogger() throws IOException{
-		logger.setLevel(Level.INFO);
+		logger.setLevel(Level.ALL);
 		PatternLayout layout = new PatternLayout(LOG_PATTERN);
         FileAppender fa = new FileAppender(layout, LOG_PATH, true);
         logger.addAppender(fa);

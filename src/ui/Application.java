@@ -49,6 +49,8 @@ public class Application {
 
 			else if(command.equals("help")) {
 				System.out.println(
+					"To send message to server, first connect to it"
+					"When quit the application, connection will automatic disactivad"
 					"Commandes: "+
 					"connect <adress> <port>  : connecting to the hostname adress and the hostport 'port' " +
 					"disconnect : disconnect the current connection" +
