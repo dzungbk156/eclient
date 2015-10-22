@@ -50,18 +50,20 @@ public class Application {
 
 			else if(command.equals("help")) {
 				System.out.println(
-					"To send message to server, first connect to it \n" +
-					"When quit the application, connection will automatic disactivad\n" +
-					"Commandes: \n"+
-					"connect <adress> <port>  : connecting to the hostname adress and the hostport 'port' \n" +
-					"disconnect : disconnect the current connection\n" +
-					"send <message>  :  send message to the current connecting server\n"+
-					"logLevel <level> : show the logs of level level\n" +
-					"help : show the help instruction\n" +
-					"quit : quit the application");
+					"EchoClient> To send message to server, first connect to it \n" +
+					"EchoClient> When quit the application, connection will automatic disactivad\n" +
+					"EchoClient> Commandes: \n"+
+					"EchoClient> connect <adress> <port>  : connecting to the hostname adress and the hostport 'port' \n" +
+					"EchoClient> disconnect : disconnect the current connection\n" +
+					"EchoClient> send <message>  :  send message to the current connecting server\n"+
+					"EchoClient> logLevel <level> : set the log to One of the following log4j log levels:\n" + 
+					"EchoClient> (ALL | DEBUG | INFO | WARN | ERROR | FATAL | OFF) \n" +
+					"EchoClient> help : show the help instruction\n" +
+					"EchoClient> quit : quit the application");
 			}
 			else if(command.equals("loglevel")) {
-
+				String logleve = sc.next();
+				System.out.println("EchoClient> "+ controller.setLogLevel(logleve));
 
 			}
 			else {

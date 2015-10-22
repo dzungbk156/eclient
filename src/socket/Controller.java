@@ -104,5 +104,10 @@ public class Controller {
 
 		}
 
+		public String setLogLevel(String level) {
+			log.info("Controller: set loglevel to " + level);
+			return log.setLogLevel(level);
+		}
+
 
 }

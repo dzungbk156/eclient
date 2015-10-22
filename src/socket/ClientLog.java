@@ -3,7 +3,7 @@ import org.apache.log4j.*;
 import java.io.*;
 public class ClientLog {
 	private static final String LOG_PATH = "logs/client.log";
-	private static final String LOG_PATTERN ="%-5p [%t]: %m%n";
+	private static final String LOG_PATTERN ="%d{dd MMM yyyy HH:mm:ss,SSS} %-5p [%t]: %m%n";
 	
 	public static final Logger logger = Logger.getLogger("echoClient");
 	
@@ -31,25 +31,29 @@ public class ClientLog {
 	}
 	public static String setLogLevel(String input){
 		String output = null;
-		Level level; 
-		if (output.equalsIgnoreCase("all")) {
+		Level level = null; 
+		if (input.equalsIgnoreCase("all")) {
             level = Level.ALL;
-        } else if (output.equalsIgnoreCase("debug")) {
+        } else if (input.equalsIgnoreCase("debug")) {
             level = Level.DEBUG;
-        } else if (output.equalsIgnoreCase("info")) {
+        } else if (input.equalsIgnoreCase("info")) {
             level = Level.INFO;
-        } else if (output.equalsIgnoreCase("warn")) {
+        } else if (input.equalsIgnoreCase("warn")) {
             level = Level.WARN;
-        } else if (output.equalsIgnoreCase("error")) {
+        } else if (input.equalsIgnoreCase("error")) {
             level = Level.ERROR;
-        } else if (output.equalsIgnoreCase("fatal")) {
+        } else if (input.equalsIgnoreCase("fatal")) {
             level = Level.FATAL;
-        } else if (output.equalsIgnoreCase("off")) {
+        } else if (input.equalsIgnoreCase("off")) {
             level = Level.OFF;
-        } else {
-            output = "Error! Logging level \"" + output
+        }
+        if(level != null) {
+        	logger.setLevel(level);
+        	return input;
+        }
+        else {
+            return output = "Error! Logging level \"" + input
                     + "\" is n ot valid.";
-	}
-		return output;
+		}
 }
 }

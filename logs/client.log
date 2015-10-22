@@ -104,3 +104,13 @@ DEBUG [main]: Controller: quit doing disconnect
 DEBUG [main]: Controller: quit doing disconnect
 INFO  [main]: Controller: socket disconnect
 INFO  [main]: Controller: socket disconnect
+22 Oct 2015 15:19:10,326 INFO  [main]: Controller: quit the application
+22 Oct 2015 15:19:10,326 INFO  [main]: Controller: quit the application
+22 Oct 2015 15:19:10,329 DEBUG [main]: Controller: quit without doing disconnect
+22 Oct 2015 15:19:10,329 DEBUG [main]: Controller: quit without doing disconnect
+22 Oct 2015 15:19:21,856 INFO  [main]: Controller: set loglevel to all
+22 Oct 2015 15:19:21,856 INFO  [main]: Controller: set loglevel to all
+22 Oct 2015 15:19:24,316 INFO  [main]: Controller: quit the application
+22 Oct 2015 15:19:24,316 INFO  [main]: Controller: quit the application
+22 Oct 2015 15:19:24,316 DEBUG [main]: Controller: quit without doing disconnect
+22 Oct 2015 15:19:24,316 DEBUG [main]: Controller: quit without doing disconnect
