@@ -2,12 +2,12 @@ package ui;
 
 import java.io.*;
 
-import socket.Controller;
-
 import java.net.UnknownHostException;
 
 import socket.ClientSocket;
+import socket.Controller;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 public class Application {
 
@@ -25,12 +25,16 @@ public class Application {
 			
 			if(command.equals("connect")) {
 				String hostname = sc.next();
-				
+				try {
 				int portNumber = sc.nextInt();
-				
 				result = controller.connect(hostname,portNumber);
 				if(result != "") System.out.println("EchoClient> " + result );
 
+				}
+				catch (InputMismatchException ime) {
+					System.err.println("EchoClient> portnumber must be a integer");
+				}
+				
 			}
 			else if(command.equals("send")) {
 				String message = sc.nextLine();
